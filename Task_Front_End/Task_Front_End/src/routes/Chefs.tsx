@@ -30,7 +30,7 @@ const Chefs = () => {
     if (fieldValue=='') {
       // Fetch all chefs immediately if input value is empty
       
-      await performSearch();
+      await refreshSearch();
       
       return; // No need to proceed with search if input value is empty
     }
@@ -87,7 +87,7 @@ const Chefs = () => {
 
     console.log(value);
   }
-  const performSearch = async () => {
+  const refreshSearch = async () => {
       try {
         const res = await ChefsService.getAllChefAxios();
         setChefsPage(res);
@@ -103,8 +103,8 @@ const Chefs = () => {
       }
         
       setFieldValue("")
-      // Call performSearch which now handles both fetching all data and performing specific searches
-      await performSearch();
+      // Call performSearch which now handles refreshing the db
+      await refreshSearch();
     };
   return (
     <>
