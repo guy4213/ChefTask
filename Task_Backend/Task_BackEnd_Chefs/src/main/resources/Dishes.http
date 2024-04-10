@@ -1,0 +1,34 @@
+###Get All Dishes
+GET localhost:8090/api/v1/Dish
+
+###ADD A Dish
+POST localhost:8090/api/v1/Dish
+Content-Type: application/json
+
+ {
+   "name":"chocolate" ,
+   "description":"a sweet candy",
+   "price": 5
+
+}
+
+###Delete Dish By ID
+DELETE localhost:8090/api/v1/Dish/13
+
+
+###Update Dish By ID
+PUT localhost:8090/api/v1/Dish/12
+Content-Type: application/json
+
+{
+  "name":"fesenjan" ,
+  "description": " fesenjan is a sweet and sour Iranian stew (a khoresh) from Northern Iran. It is typically served over rice in the Iranian manner."
+
+
+}
+
+###get A Dish By ID
+GET localhost:8090/api/v1/Dish/12
+
+###search dish By Name
+GET localhost:8090/api/v1/Dish/search/c

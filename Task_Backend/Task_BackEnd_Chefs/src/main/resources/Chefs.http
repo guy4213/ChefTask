@@ -1,0 +1,66 @@
+###get all chefs,Sort by id
+GET http://127.0.0.1:8090/api/v1/Chef?pageNo=0&pageSize=40&sortDir=asc&sortBy=id
+
+###get all chefs,Sort by numOfOrders
+GET http://127.0.0.1:8090/api/v1/Chef?pageNo=0&pageSize=40&sortDir=desc&sortBy=numOfOrders
+
+###get all chefs,Sort by avgPrice
+GET http://127.0.0.1:8090/api/v1/Chef?pageNo=0&pageSize=40&sortDir=asc&sortBy=avgPrice
+
+###add Chef
+POST  http://127.0.0.1:8090/api/v1/Chef
+Content-Type: application/json
+
+{
+  "name": "Master Chef",
+  "description": "blah blah blah",
+  "img": "https://tinyurl.com/ChefsAreGreat",
+  "food_Kosher": "kosher",
+  "numOfOrders": 230,
+
+  "residence": "holon israell",
+  "deliveryCost": "205$"
+}
+
+###Add Kitchen Kinds to Chefs
+POST  http://localhost:8090/api/v1/Chef/addKitchenKindsByNames?ChefId=4&kitchenKindName=eastern,Mediterranean,asian,western
+
+###Add Available Dishes To A Chef
+POST  http://localhost:8090/api/v1/Chef/addDishesByNames?ChefId=4&dishNames=Spaghetti Carbonara,kebab
+
+
+###Delete by id
+DELETE http://127.0.0.1:8090/api/v1/Chef/2
+
+###update by id
+PUT http://127.0.0.1:8090/api/v1/Chef/4
+Content-Type: application/json
+
+{
+  "name": "Master Chef",
+  "description": "Master of All Kinds",
+  "img": "https://tinyurl.com/ChefsAreGreat",
+  "numOfOrders": 0,
+  "food_Kosher": "kosher",
+  "price_range": "100-180$",
+  "residence": "holon israel",
+  "deliveryCost": "30$"
+}
+
+###get Chef By ID
+GET http://127.0.0.1:8090/api/v1/Chef/3
+
+###search chef by name(or if part of it contains)
+GET http://127.0.0.1:8090/api/v1/Chef/search/michal
+
+###search chef by residence name(or if part of it contains)
+GET http://localhost:8090/api/v1/Chef/searchResidence/israel
+
+###Search Chef By KitchenKind name
+GET http://localhost:8090/api/v1/Chef/searchKitchenKindName/asian
+
+###Search Chef By dish name(from avaible dishes list)
+GET http://localhost:8090/api/v1/Chef/searchByDishName/Kimchi
+
+###ADD Rate
+POST http://127.0.0.1:8090/api/v1/Chef/addRate?ChefID=3&rate=5

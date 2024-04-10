@@ -1,0 +1,32 @@
+###Get All Kitchen Kinds
+GET localhost:8090//api/v1/KitchenKind
+
+###ADD Kitchen Kind
+POST localhost:8090/api/v1/KitchenKind
+Content-Type: application/json
+
+{
+  "name":"Russian" ,
+  "description":"A Special kind with many extraordinary foods"
+
+}
+
+###Delete Kitchen Kind By ID
+DELETE localhost:8090/api/v1/KitchenKind/5
+
+###Update Kitchen Kind By ID
+PUT localhost:8090/api/v1/KitchenKind/5
+Content-Type: application/json
+
+{
+  "name":"Russian" ,
+  "description":"A Special kind with many extraordinary foods"
+
+}
+
+
+###get A Kitchen Kind By ID
+GET localhost:8090/api/v1/KitchenKind/5
+
+###Search
+GET localhost:8090/api/v1/KitchenKind/search/asian
